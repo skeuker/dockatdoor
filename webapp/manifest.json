@@ -68,7 +68,7 @@
 					"bundleName": "pnp.ewm.dockatdoor.i18n.i18n"
 				}
 			},
-			"dockatdoor": {
+			"DockAtDoorModel": {
 				"uri": "/here/goes/your/serviceurl/",
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
