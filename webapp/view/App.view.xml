@@ -22,7 +22,7 @@
 									<sap.ui.layout.form:FormElement label="{i18n>DoorScan}" visible="{ViewModel>/bDoorScanVisible}">
 										<sap.ui.layout.form:fields>
 											<HBox>
-												<Input width="50%" value="{ViewModel>/iDoorScan}" visible="{ViewModel>/bDoorScanVisible}" fieldWidth="100%" change="onChangeInpDoorScan"
+												<Input value="{ViewModel>/iDoorScan}" visible="{ViewModel>/bDoorScanVisible}" fieldWidth="100%" change="onChangeInpDoorScan"
 													liveChange="onLiveChangeInput" placeholder="{i18n>pholderDoorScan}"/>
 												<ndc:BarcodeScannerButton id="bscanDoor" scanSuccess="onDoorBarcodeScanSuccessful"/>
 											</HBox>
