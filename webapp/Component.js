@@ -27,6 +27,9 @@ sap.ui.define([
 			// set the device model
 			this.setModel(models.createDeviceModel(), "device");
 
+			//require barcode scanner
+			jQuery.sap.require("sap.ndc.BarcodeScanner");
+
 		}
 	});
 });

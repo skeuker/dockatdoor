@@ -122,6 +122,22 @@ sap.ui.define([
 			//set message strip visible
 			this.oViewModel.setProperty("/bMStripVisible", true);
 
+		},
+
+		//on successfully scanning a truck
+		onTruckBarcodeScanSuccessful: function (oEvent) {
+
+			//adopt scanned truck barcode into view
+			this.oViewModel.setProperty("/iTruckScan", oEvent.mParameters.text);
+
+		},
+
+		//on successfully scanning a door
+		onDoorBarcodeScanSuccessful: function (oEvent) {
+
+			//adopt scanned door barcode into view
+			this.oViewModel.setProperty("/iDoorScan", oEvent.mParameters.text);
+
 		}
 
 	});

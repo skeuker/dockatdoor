@@ -1,25 +1,31 @@
-<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m"
+<mvc:View xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc" xmlns:ndc="sap.ndc" xmlns="sap.m"
 	controllerName="pnp.ewm.dockatdoor.controller.App" displayBlock="true">
 	<App id="idAppControl">
 		<pages>
 			<Page title="{i18n>title}" busy="{ViewModel>/isAppPageBusy}">
 				<content>
 					<MessageStrip xmlns="sap.m" text="{ViewModel>/sMStripText}" showIcon="false" showCloseButton="true" id="mstripAppView"
-						visisble="{ViewModel>/bMStripVisible}" type="{ViewModel>/sMStripType}"></MessageStrip>
+						visisble="{ViewModel>/bMStripVisible}" type="{ViewModel>/sMStripType}"/>
 					<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="formDockAtDoor">
 						<sap.ui.layout.form:formContainers>
 							<sap.ui.layout.form:FormContainer title="Scan to dock">
 								<sap.ui.layout.form:formElements>
 									<sap.ui.layout.form:FormElement label="{i18n>TruckScan}">
 										<sap.ui.layout.form:fields>
-											<Input width="50%" id="input0" value="{ViewModel>/iTruckScan}" fieldWidth="100%" maxLength="15" change="onChangeInpTruckScan"
-												liveChange="onLiveChangeInput" enabled="{ViewModel>/bTruckScanEnabled}" placeholder="{i18n>pholderTruckScan}"/>
+											<HBox>
+												<Input value="{ViewModel>/iTruckScan}" fieldWidth="100%" maxLength="15" change="onChangeInpTruckScan" liveChange="onLiveChangeInput"
+													enabled="{ViewModel>/bTruckScanEnabled}" placeholder="{i18n>pholderTruckScan}"/>
+												<ndc:BarcodeScannerButton id="bscanTruck" scanSuccess="onTruckBarcodeScanSuccessful" visible="{ViewModel>/bTruckScanEnabled}"/>
+											</HBox>
 										</sap.ui.layout.form:fields>
 									</sap.ui.layout.form:FormElement>
 									<sap.ui.layout.form:FormElement label="{i18n>DoorScan}" visible="{ViewModel>/bDoorScanVisible}">
 										<sap.ui.layout.form:fields>
-											<Input width="50%" value="{ViewModel>/iDoorScan}" visible="{ViewModel>/bDoorScanVisible}" fieldWidth="100%" change="onChangeInpDoorScan"
-												liveChange="onLiveChangeInput" placeholder="{i18n>pholderDoorScan}"/>
+											<HBox>
+												<Input width="50%" value="{ViewModel>/iDoorScan}" visible="{ViewModel>/bDoorScanVisible}" fieldWidth="100%" change="onChangeInpDoorScan"
+													liveChange="onLiveChangeInput" placeholder="{i18n>pholderDoorScan}"/>
+												<ndc:BarcodeScannerButton id="bscanDoor" scanSuccess="onDoorBarcodeScanSuccessful"/>
+											</HBox>
 										</sap.ui.layout.form:fields>
 									</sap.ui.layout.form:FormElement>
 								</sap.ui.layout.form:formElements>
