@@ -13,7 +13,7 @@
 									<sap.ui.layout.form:FormElement label="{i18n>TruckScan}">
 										<sap.ui.layout.form:fields>
 											<HBox>
-												<Input value="{ViewModel>/iTruckScan}" fieldWidth="100%" maxLength="15" change="onChangeInpTruckScan" liveChange="onLiveChangeInput"
+												<Input id="inpTruckScan" type="Number" value="{ViewModel>/iTruckScan}" fieldWidth="100%" maxLength="15" liveChange="onLiveChangeInput"
 													enabled="{ViewModel>/bTruckScanEnabled}" placeholder="{i18n>pholderTruckScan}"/>
 												<ndc:BarcodeScannerButton id="bscanTruck" scanSuccess="onTruckBarcodeScanSuccessful" visible="{ViewModel>/bTruckScanEnabled}"/>
 											</HBox>
@@ -22,7 +22,7 @@
 									<sap.ui.layout.form:FormElement label="{i18n>DoorScan}" visible="{ViewModel>/bDoorScanVisible}">
 										<sap.ui.layout.form:fields>
 											<HBox>
-												<Input value="{ViewModel>/iDoorScan}" visible="{ViewModel>/bDoorScanVisible}" fieldWidth="100%" change="onChangeInpDoorScan"
+												<Input id="inpDoorScan" type="Number" value="{ViewModel>/iDoorScan}" visible="{ViewModel>/bDoorScanVisible}" fieldWidth="100%"
 													liveChange="onLiveChangeInput" placeholder="{i18n>pholderDoorScan}"/>
 												<ndc:BarcodeScannerButton id="bscanDoor" scanSuccess="onDoorBarcodeScanSuccessful"/>
 											</HBox>

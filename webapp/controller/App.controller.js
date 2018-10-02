@@ -27,37 +27,80 @@ sap.ui.define([
 				this.setStripMessage("Error", this.getOwnerComponent().getModel("i18n").getProperty("messageMetadataLoadFailed"));
 
 				//disable truck scan form input 
-				this.oViewModel.setProperty("/bTruckScanEnabled", false);
+				this.oViewModel.setProperty("/bTruckScanEnabled", true);
 
 			}, this);
 
 		},
 
+		//on after rendering
+		onAfterRendering: function () {
+
+			//set focus on truck scan input field
+			this.getView().byId("inpTruckScan").focus();
+
+		},
+
 		//on live change of input
-		onLiveChangeInput: function () {
+		onLiveChangeInput: function (oEvent) {
 
 			//set message strip visible
 			this.oViewModel.setProperty("/bMStripVisible", false);
 
+			//set submit button enabled state depending on input
+			if (this.getView().byId("inpTruckScan").getValue() &&
+				this.getView().byId("inpDoorScan").getValue()) {
+				this.oViewModel.setProperty("/bSubmitButtonEnabled", true);
+			} else {
+				this.oViewModel.setProperty("/bSubmitButtonEnabled", false);
+			}
+
+			//truck scan input has changed
+			if (/Truck/.test(oEvent.getSource().getId())) {
+				this.onChangeInpTruckScan();
+			}
+
+			//door scan input has changed
+			if (/Door/.test(oEvent.getSource().getId())) {
+				this.onChangeInpDoorScan();
+			}
+
 		},
 
 		/**
 		 *@memberOf pnp.ewm.dockatdoor.controller.App
 		 */
-		onChangeInpTruckScan: function (oEvent) {
+		onChangeInpTruckScan: function () {
 
-			//set view model property to display door scan input
-			this.oViewModel.setProperty("/bDoorScanVisible", true);
+			//get value contained in input
+			var oValue = this.getView().byId("inpTruckScan").getValue();
+
+			//decide whether input to be visible or not
+			var bVisible = oValue ? true : false;
+
+			//set view model property for door scan input visibility
+			this.oViewModel.setProperty("/bDoorScanVisible", bVisible);
+
+			//initialize door scan where applicable
+			if (!bVisible) {
+				this.oViewModel.setProperty("/iDoorScan", null);
+			}
 
 		},
 
 		/**
 		 *@memberOf pnp.ewm.dockatdoor.controller.App
 		 */
-		onChangeInpDoorScan: function (oEvent) {
+		onChangeInpDoorScan: function () {
 
-			//set view model property to display door scan input
-			this.oViewModel.setProperty("/bSubmitButtonEnabled", true);
+			//get value contained in input
+			var oValue = this.getView().byId("inpDoorScan").getValue();
+
+			//decide whether input to be visible or not
+			var bEnabled = oValue ? true : false;
+
+			//set view model property to set enabled state of submit button
+			this.oViewModel.setProperty("/bSubmitButtonEnabled", bEnabled);
 
 		},
 
@@ -101,6 +144,7 @@ sap.ui.define([
 		//prepare app view for rendering
 		initAppView: function () {
 
+			this.getView().byId("inpTruckScan").focus();
 			this.oViewModel.setProperty("/bMStripVisible", false);
 			this.oViewModel.setProperty("/bMStripVisible", false);
 			this.oViewModel.setProperty("/isAppPageBusy", false);
@@ -130,6 +174,9 @@ sap.ui.define([
 			//adopt scanned truck barcode into view
 			this.oViewModel.setProperty("/iTruckScan", oEvent.mParameters.text);
 
+			//call truck scan input change handler
+			this.onChangeInpTruckScan(oEvent);
+
 		},
 
 		//on successfully scanning a door
@@ -137,6 +184,9 @@ sap.ui.define([
 
 			//adopt scanned door barcode into view
 			this.oViewModel.setProperty("/iDoorScan", oEvent.mParameters.text);
+
+			//call door scan input change handler
+			this.onChangeInpDoorScan(oEvent);
 
 		}
 
