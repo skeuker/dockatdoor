@@ -96,7 +96,7 @@ sap.ui.define([
 			//get value contained in input
 			var oValue = this.getView().byId("inpDoorScan").getValue();
 
-			//decide whether input to be visible or not
+			//decide whether submit to be visible or not
 			var bEnabled = oValue ? true : false;
 
 			//set view model property to set enabled state of submit button
@@ -175,7 +175,7 @@ sap.ui.define([
 			this.oViewModel.setProperty("/iTruckScan", oEvent.mParameters.text);
 
 			//call truck scan input change handler
-			this.onChangeInpTruckScan(oEvent);
+			this.onChangeInpTruckScan();
 
 		},
 
@@ -186,7 +186,7 @@ sap.ui.define([
 			this.oViewModel.setProperty("/iDoorScan", oEvent.mParameters.text);
 
 			//call door scan input change handler
-			this.onChangeInpDoorScan(oEvent);
+			this.onChangeInpDoorScan();
 
 		}
 
