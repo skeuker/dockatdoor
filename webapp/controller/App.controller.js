@@ -119,7 +119,7 @@ sap.ui.define([
 				success: function (oData, response) {
 
 					//notify about docking successfully
-					this.setStripMessage("Success", this.getOwnerComponent().getModel("i18n").getProperty("messageDockedSuccessfully"))
+					this.setStripMessage("Success", this.getOwnerComponent().getModel("i18n").getProperty("messageDockedSuccessfully"));
 
 					//initialize app view for next docking transaction
 					this.initAppView();
@@ -130,7 +130,7 @@ sap.ui.define([
 				error: function (oError) {
 
 					//notify about failure
-					this.setStripMessage("Error", this.getOwnerComponent().getModel("i18n").getProperty("messageDockingFailed"))
+					this.setStripMessage("Error", this.getOwnerComponent().getModel("i18n").getProperty("messageDockingFailed"));
 
 					//set app page to no longer busy
 					this.oViewModel.setProperty("/isAppPageBusy", false);

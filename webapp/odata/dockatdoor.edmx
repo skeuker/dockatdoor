@@ -14,7 +14,7 @@
 				</Key>
 				<Property Name="messageID" Type="Edm.String" Nullable="false" sap:label=""></Property>
 				<Property Name="messageType" Type="Edm.String" Nullable="true"></Property>
-				<Property Name="messageTest" Type="Edm.String" Nullable="true"></Property>
+				<Property Name="messageText" Type="Edm.String" Nullable="true"></Property>
 			</EntityType>
 		</Schema>
 	</edmx:DataServices>
