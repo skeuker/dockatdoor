@@ -1,0 +1,11 @@
+<edmx:Edmx xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx"
+	xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns:sap="http://www.sap.com/Protocols/SAPData" Version="1.0">
+	<edmx:DataServices m:DataServiceVersion="2.0">
+		<Schema xmlns="http://schemas.microsoft.com/ado/2008/09/edm" Namespace="S1" xml:lang="en" sap:schema-version="1">
+			<EntityType Name="Message" sap:content-version="1">
+				<Key><PropertyRef Name="messageID"/></Key><Property Name="messageID" Type="Edm.String" Nullable="false"/><Property Name="messageType" Type="Edm.String"/><Property Name="messageText" Type="Edm.String"/></EntityType>
+			<EntityContainer Name="S1_Entities" m:IsDefaultEntityContainer="true" sap:supported-formats="atom json xlsx"><EntitySet Name="Messages" EntityType="S1.Message" sap:content-version="1"/>
+				<FunctionImport Name="dockatdoor" ReturnType="Collection(S1.Message)" EntitySet="Messages" m:HttpMethod="GET"><Parameter Name="truckID" Type="Edm.String" Mode="In"/><Parameter Name="doorID" Type="Edm.String" Mode="In"/></FunctionImport>
+			</EntityContainer><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="self" href="./pnp/DOCK_AT_DOOR_SRV/$metadata"/><atom:link xmlns:atom="http://www.w3.org/2005/Atom" rel="latest-version" href="./pnp/DOCK_AT_DOOR_SRV/$metadata"/></Schema>
+	</edmx:DataServices>
+</edmx:Edmx>

@@ -5,7 +5,7 @@
 			<Page title="{i18n>title}" busy="{ViewModel>/isAppPageBusy}">
 				<content>
 					<MessageStrip xmlns="sap.m" text="{ViewModel>/sMStripText}" showIcon="false" showCloseButton="true" id="mstripAppView"
-						visisble="{ViewModel>/bMStripVisible}" type="{ViewModel>/sMStripType}"/>
+						visible="{ViewModel>/bMStripVisible}" type="{ViewModel>/sMStripType}"/>
 					<sap.ui.layout.form:Form xmlns:sap.ui.layout.form="sap.ui.layout.form" editable="true" id="formDockAtDoor">
 						<sap.ui.layout.form:formContainers>
 							<sap.ui.layout.form:FormContainer title="Scan to dock">

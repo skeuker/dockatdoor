@@ -14,12 +14,12 @@
 			"version": "0.0.0"
 		},
 		"dataSources": {
-			"S1": {
-				"uri": "/sap/opu/odata/PNP/DOCK_AT_DOOR_SRV/",
+			"DOCK_AT_DOOR_SRV": {
+				"uri": "/sap/opu/odata/pnp/DOCK_AT_DOOR_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
-					"localUri": "localService/metadata.xml"
+					"localUri": "localService/DOCK_AT_DOOR_SRV/metadata.xml"
 				}
 			}
 		}
@@ -76,7 +76,7 @@
 					"defaultBindingMode": "OneWay",
 					"defaultCountMode": "Request"
 				},
-				"dataSource": "S1",
+				"dataSource": "DOCK_AT_DOOR_SRV",
 				"preload": true
 			}
 		},
@@ -112,7 +112,5 @@
 			}
 		}
 	},
-	"sap.mobile": {
-
-	}
+	"sap.mobile": {}
 }

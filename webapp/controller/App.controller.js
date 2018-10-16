@@ -17,6 +17,9 @@ sap.ui.define([
 			//prepare app view for rendering
 			this.initAppView();
 
+			//initially hide message strip
+			this.oViewModel.setProperty("/bMStripVisible", false);
+
 			//set OData model to this view
 			this.oODataModel = this.getOwnerComponent().getModel("DockAtDoorModel");
 
@@ -115,6 +118,12 @@ sap.ui.define([
 			//execute function import on OData model
 			this.oODataModel.callFunction("/dockatdoor", {
 
+				//url paramters
+				urlParameters: {
+					"doorID": this.oViewModel.getProperty("/iTruckScan"),
+					"truckID": this.oViewModel.getProperty("/iDoorScan")
+				},
+
 				//function import called successfully
 				success: function (oData, response) {
 
@@ -145,8 +154,6 @@ sap.ui.define([
 		initAppView: function () {
 
 			this.getView().byId("inpTruckScan").focus();
-			this.oViewModel.setProperty("/bMStripVisible", false);
-			this.oViewModel.setProperty("/bMStripVisible", false);
 			this.oViewModel.setProperty("/isAppPageBusy", false);
 			this.oViewModel.setProperty("/iTruckScan", null);
 			this.oViewModel.setProperty("/iDoorScan", null);
