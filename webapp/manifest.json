@@ -15,7 +15,7 @@
 		},
 		"dataSources": {
 			"S1": {
-				"uri": "/here/goes/your/serviceurl/",
+				"uri": "/sap/opu/odata/PNP/DOCK_AT_DOOR_SRV/",
 				"type": "OData",
 				"settings": {
 					"odataVersion": "2.0",
@@ -69,7 +69,7 @@
 				}
 			},
 			"DockAtDoorModel": {
-				"uri": "/here/goes/your/serviceurl/",
+				"uri": "/sap/opu/odata/PNP/DOCK_AT_DOOR_SRV",
 				"type": "sap.ui.model.odata.v2.ODataModel",
 				"settings": {
 					"defaultOperationMode": "Server",
