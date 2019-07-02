@@ -81,9 +81,11 @@
 			}
 		},
 		"resources": {
-			"css": [{
-				"uri": "css/style.css"
-			}]
+			"css": [
+				{
+					"uri": "css/style.css"
+				}
+			]
 		},
 		"routing": {
 			"config": {
@@ -95,13 +97,15 @@
 				"controlId": "idAppControl",
 				"clearControlAggregation": false
 			},
-			"routes": [{
-				"name": "RouteApp",
-				"pattern": "RouteApp",
-				"target": [
-					"TargetApp"
-				]
-			}],
+			"routes": [
+				{
+					"name": "RouteApp",
+					"pattern": "RouteApp",
+					"target": [
+						"TargetApp"
+					]
+				}
+			],
 			"targets": {
 				"TargetApp": {
 					"viewType": "XML",
@@ -112,5 +116,9 @@
 			}
 		}
 	},
-	"sap.mobile": {}
+	"sap.mobile": {},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/pnp/dockatdoor/webapp",
+		"_version": "1.1.0"
+	}
 }

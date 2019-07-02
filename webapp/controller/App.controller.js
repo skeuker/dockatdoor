@@ -120,8 +120,8 @@ sap.ui.define([
 
 				//url paramters
 				urlParameters: {
-					"doorID": this.oViewModel.getProperty("/iTruckScan"),
-					"truckID": this.oViewModel.getProperty("/iDoorScan")
+					"doorID": this.oViewModel.getProperty("/iDoorScan"),
+					"truckID": this.oViewModel.getProperty("/iTruckScan")
 				},
 
 				//function import called successfully
@@ -138,8 +138,11 @@ sap.ui.define([
 				//function import call failed
 				error: function (oError) {
 
-					//notify about failure
-					this.setStripMessage("Error", this.getOwnerComponent().getModel("i18n").getProperty("messageDockingFailed"));
+					//get error response message
+					var oResponseText = JSON.parse(oError.responseText);
+
+					//message handling: send strip message
+					this.setStripMessage("Error", oResponseText.error.message.value);
 
 					//set app page to no longer busy
 					this.oViewModel.setProperty("/isAppPageBusy", false);

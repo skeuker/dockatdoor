@@ -1,0 +1,11 @@
+{
+  "deploy": {
+    "destination": "SMD100",
+    "name": "/PNP/DOCKATDOOR"
+  },
+  "basevalidator": {
+    "services": {
+      "js": "fioriJsValidator"
+    }
+  }
+}
